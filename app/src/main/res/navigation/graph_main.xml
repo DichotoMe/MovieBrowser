@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
+    app:startDestination="@id/fragmentMovieList">
+
+    <fragment
+        android:id="@+id/fragmentMovieList"
+        android:name="com.dichotome.moviebrowser.ui.FragmentList"
+        android:label="FragmentMovieList" >
+        <action
+            android:id="@+id/action_set_filters"
+            app:destination="@id/fragmentFilters" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFilters"
+        android:name="com.dichotome.moviebrowser.ui.FragmentFilters"
+        android:label="FragmentFilters" >
+        <action
+            android:id="@+id/action_apply_filters"
+            app:destination="@+id/fragmentMovieList"
+            app:popUpTo="@+id/fragmentMovieList"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

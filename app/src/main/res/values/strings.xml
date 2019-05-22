@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovieBrowser</string>
+    <string name="request_error">Failed to fetch movies</string>
+    <string name="apply_filter">Apply filter</string>
+    <string name="genres">Genres</string>
+    <string name="years">Years</string>
+    <string name="directors">Directors</string>
+    <string name="no_results_found">No results found</string>
+</resources>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="logic"
+            type="com.dichotome.moviebrowser.ui.main.MainLogic" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:onClick="@{() -> logic.finishFilters()}"
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+                android:background="?actionBarItemBackground"
+                android:padding="16dp"
+                android:src="@drawable/ic_arrow_back_24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/back_button"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/app_name"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:onClick="@{() -> logic.clearFilters()}"
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:adjustViewBounds="true"
+                android:background="?actionBarItemBackground"
+                android:padding="16dp"
+                android:src="@drawable/ic_close_24dp" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/apply_filter_button"
+            android:layout_below="@id/appbar"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/genres_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/genres"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:id="@+id/genres_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/years_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/years"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:id="@+id/years_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/directors_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/directors"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:id="@+id/directors_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:onClick="@{() -> logic.applyFilters()}"
+            android:id="@+id/apply_filter_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:text="@string/apply_filter"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</layout>
